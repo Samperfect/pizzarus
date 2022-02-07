@@ -1,6 +1,6 @@
 import { Schema, model, Model } from 'mongoose';
 
-const cartSchema: Schema = new Schema(
+const orderSchema: Schema = new Schema(
   {
     customer: {
       type: Schema.Types.ObjectId,
@@ -24,10 +24,6 @@ const cartSchema: Schema = new Schema(
       type: Number,
       default: 0,
     },
-    totalQuantity: {
-      type: Number,
-      default: 0,
-    },
     config: Object,
     reference: String,
     transaction: Object,
@@ -40,6 +36,6 @@ const cartSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-const Cart: Model<any> = model('cart', cartSchema);
+const Order: Model<any> = model('order', orderSchema);
 
-export default Cart;
+export default Order;

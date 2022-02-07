@@ -110,7 +110,7 @@ const updateUser = async (user: Keyable, payload: Keyable): Promise<any> => {
   if (payload.password) {
     payload.password = generateHashedPassword(payload.password);
   }
-  if (payload.email && payload.email.toLowerCase() !== user.email) {
+  if (payload.email && payload.email.toLowerCase() !== user.email.toString()) {
     let existingUser = await findUserByEmail(payload.email.toLowerCase());
     if (existingUser) {
       return makeResponse(false, 'EMAIL_DUPLICATE', {});

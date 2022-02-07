@@ -6,4 +6,12 @@ const base = (req: Request, res: Response) => {
   return sendSuccessResponse(res, 'Welcome to the base endpoint', {});
 };
 
-export { base };
+const paymentSuccess = (req: Request, res: Response) => {
+  return sendSuccessResponse(res, 'Payment completed successfully', {});
+};
+
+const paymentFailed = (req: Request, res: Response) => {
+  return sendSuccessResponse(res, 'Payment cancelled 😢', {});
+};
+
+export { base, paymentSuccess, paymentFailed };

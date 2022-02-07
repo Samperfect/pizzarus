@@ -1,12 +1,8 @@
 import { Request, Response } from 'express';
 import { sendErrorResponse, sendSuccessResponse } from '../utilities/response';
-import {
-  loginUser,
-  registerUser,
-  updateUser,
-  findOneUser,
-  destroyAUser,
-} from '../dao/user';
+import { loginUser, registerUser, updateUser, findOneUser } from '../dao/user';
+import { checkoutUserCart } from '../dao/cart';
+import {} from '../dao/cart';
 
 const register = async (req: Request, res: Response) => {
   try {
@@ -16,7 +12,6 @@ const register = async (req: Request, res: Response) => {
     }
     return sendErrorResponse(res, create.message, {}, 400);
   } catch (error: any) {
-    console.log(error);
     return sendErrorResponse(res, 'UNKNOWN_ERROR', {}, 500);
   }
 };
@@ -29,7 +24,6 @@ const login = async (req: Request, res: Response) => {
     }
     return sendErrorResponse(res, login.message, {}, 400);
   } catch (error: any) {
-    console.log(error);
     return sendErrorResponse(res, 'UNKNOWN_ERROR', {}, 500);
   }
 };
@@ -42,7 +36,6 @@ const updateAUser = async (req: Request, res: Response) => {
     }
     return sendErrorResponse(res, update.message, {}, 400);
   } catch (error: any) {
-    console.log(error);
     return sendErrorResponse(res, 'UNKNOWN_ERROR', {}, 500);
   }
 };
@@ -55,9 +48,20 @@ const getAUser = async (req: Request, res: Response) => {
     }
     return sendErrorResponse(res, found.message, {}, 400);
   } catch (error: any) {
-    console.log(error);
     return sendErrorResponse(res, 'UNKNOWN_ERROR', {}, 500);
   }
 };
 
-export { register, login, updateAUser, getAUser };
+const checkout = async (req: Request, res: Response) => {
+  try {
+    const order = await checkoutUserCart(req.user);
+    if (order.status) {
+      return sendSuccessResponse(res, order.message, order.data, 200);
+    }
+    return sendErrorResponse(res, order.message, {}, 400);
+  } catch (error: any) {
+    return sendErrorResponse(res, 'UNKNOWN_ERROR', {}, 500);
+  }
+};
+
+export { register, login, updateAUser, getAUser, checkout };

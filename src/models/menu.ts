@@ -1,6 +1,6 @@
 import { Schema, model, Model } from 'mongoose';
 
-const cartSchema: Schema = new Schema(
+const menuSchema: Schema = new Schema(
   {
     name: {
       type: String,
@@ -19,6 +19,6 @@ const cartSchema: Schema = new Schema(
   { timestamps: true }
 );
 
-const Cart: Model<any> = model('cart', cartSchema);
+const Menu: Model<any> = model('menu', menuSchema);
 
-export default Cart;
+export default Menu;

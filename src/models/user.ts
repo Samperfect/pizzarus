@@ -22,8 +22,6 @@ const userSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    otp: String,
-    otpTime: Date,
   },
   { timestamps: true }
 );
