@@ -14,8 +14,6 @@ const cartSchema: Schema = new Schema(
       type: Number,
       default: 0,
     },
-    images: [String],
-    category: String,
     description: String,
   },
   { timestamps: true }

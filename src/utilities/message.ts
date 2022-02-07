@@ -17,6 +17,10 @@ class Message {
       UPDATE_SUCCESS: 'Successfully updated user',
       USER_QUERY_SUCCESS: 'Successfully queried user',
       USER_DELETE_SUCCESS: 'Successfully deleted user',
+      MENUS_UNAVAILABLE: 'Menus are unavailable',
+      MENUS_QUERY_SUCCESS: 'Successfully queried menus',
+      MENU_CREATION_ERROR: 'Error occured while creating menu',
+      MENU_CREATION_SUCCESS: 'Successfully created menu',
     };
   }
 

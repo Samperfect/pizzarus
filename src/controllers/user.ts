@@ -60,17 +60,4 @@ const getAUser = async (req: Request, res: Response) => {
   }
 };
 
-const deleteAUser = async (req: Request, res: Response) => {
-  try {
-    const found = await destroyAUser(req.body.email);
-    if (found.status) {
-      return sendSuccessResponse(res, found.message, found.data, 200);
-    }
-    return sendErrorResponse(res, found.message, {}, 400);
-  } catch (error: any) {
-    console.log(error);
-    return sendErrorResponse(res, 'UNKNOWN_ERROR', {}, 500);
-  }
-};
-
-export { register, login, updateAUser, getAUser, deleteAUser };
+export { register, login, updateAUser, getAUser };

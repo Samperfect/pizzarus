@@ -1,9 +1,8 @@
-import express, { Router } from 'express';
+import { Router } from 'express';
 import {
   validateRegisterPayload,
   validateLoginPayload,
   authTokenRequired,
-  validatedeleteUserPayload,
 } from '../validations/user';
 
 const userRouter = Router();
