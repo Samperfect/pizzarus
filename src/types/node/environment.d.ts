@@ -7,7 +7,7 @@ declare global {
       JWT_SECRET: 'thisisnotsosecretive';
       STRIPE_SECRET: sk_test_6uTwljkHRk3Rx4549bi1Hrq5;
       STRIPE_PUBLIC: pk_test_Mm0rf6EdSdqxaeeDYGdlutgp;
-      APP_URL: 'http://localhost:7000';
+      APP_URL: 'https://pizzarus.herokuapp.com';
     }
   }
 }
